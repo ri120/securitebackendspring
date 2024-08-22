@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
-@DiscriminatorValue("Proffesseur")
+@DiscriminatorValue("Eleve")
 public class Eleve extends User{
 	
 	private String Diplome;
