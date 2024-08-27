@@ -94,7 +94,7 @@ public class AuthenticationService {
     if (userRequest instanceof EleveDto) {
     	Eleve user = new Eleve();
     	   user = EleveDto.Toentite((EleveDto) userRequest);
-    	
+    	   user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
     	   user.setRole(Erole.ELEVE);
     	   var savedUser = repository.save(user);
     	   publisher.publishEvent(new RegistrationCompleteEvent(savedUser, applicationUrl(request)));
