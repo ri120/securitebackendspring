@@ -21,8 +21,9 @@ public class FormateurModel {
     private Long id;
 
     private String nom;
-    private String expertise;
+    private String specialite;
 
-    @ManyToMany(mappedBy = "formateurs")
-    private List<SessionModel> sessions;
+    @ManyToOne
+    @JoinColumn(name = "centre_formation_id")
+    private CentreFormationModel centreFormation;
 }

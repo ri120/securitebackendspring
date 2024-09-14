@@ -18,10 +18,6 @@ public class SessionServiceImpl implements SessionService {
         return sessionRepo.findAll();
     }
 
-    @Override
-    public List<SessionModel> getSessionsByCentreFormation(Long centreFormationId) {
-        return sessionRepo.findByCentreDeFormation_Id(centreFormationId);
-    }
 
     @Override
     public SessionModel getSessionById(Long id) {

@@ -21,18 +21,11 @@ public class CentreFormationModel {
     private Long id;
 
     private String nom;
-
-    private String adresse;
-
-    private String telephone;
-
     private String email;
+    private String motDePasse;
 
-
-
-// un centre de formation peut avoir plusieurs sessions, il est préférable de changer la relation en @ManyToOne :
     @ManyToOne
-    @JoinColumn(name = "centre_de_formation_id")
-    private CentreFormationModel centreDeFormation;
+    @JoinColumn(name = "session_id")
+    private SessionModel session;
 
 }

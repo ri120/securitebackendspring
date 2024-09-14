@@ -21,10 +21,7 @@ public class SessionController {
         return sessionService.getAllSessions();
     }
 
-    @GetMapping("/centre/{centreId}")
-    public List<SessionModel> getSessionsByCentreFormation(@PathVariable Long centreId) {
-        return sessionService.getSessionsByCentreFormation(centreId);
-    }
+
 
     @GetMapping("/{id}")
     public SessionModel getSessionById(@PathVariable Long id) {

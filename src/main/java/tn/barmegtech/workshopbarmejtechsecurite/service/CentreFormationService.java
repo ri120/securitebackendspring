@@ -3,12 +3,13 @@ package tn.barmegtech.workshopbarmejtechsecurite.service;
 
 import org.springframework.stereotype.Service;
 import tn.barmegtech.workshopbarmejtechsecurite.model.CentreFormationModel;
+import tn.barmegtech.workshopbarmejtechsecurite.model.PermissionType;
 
-import java.util.List;
+
 
 public interface CentreFormationService {
-    List<CentreFormationModel> getAllCentreFormations();
-    CentreFormationModel getCentreFormationById(Long id);
-    CentreFormationModel createCentreFormation(CentreFormationModel centreFormation);
-    void deleteCentreFormation(Long id);
+    CentreFormationModel trouverCentreParId(Long id);
+    CentreFormationModel trouverParEmail(String email);
+    boolean autoriserAcces(Long centreFormationId, PermissionType permissionType);
+    boolean verifierPermission(Long centreFormationId, PermissionType permissionType);
 }
