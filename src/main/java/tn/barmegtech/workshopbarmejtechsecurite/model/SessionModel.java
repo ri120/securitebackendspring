@@ -23,34 +23,9 @@ public class SessionModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date dateDebut;
-    private Date dateFin;
-    private String etat;
+    private String nomSession;
 
-    @OneToOne
-    @JoinColumn(name = "centre_de_formation_id", unique = true)
-    private CentreFormationModel centreDeFormation;
-
-//*Explication : La colonne centre_de_formation_id dans la table SessionModel sera utilisée pour stocker la référence unique au centre de formation associé. Le unique = true impose une contrainte d'unicité,
- //garantissant qu'une session ne peut être associée qu'à un seul centre de formation à la fois
-    @ManyToMany
-    @JoinTable(
-            name = "session_formation",
-            joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "formation_id")
-    )
-    private List<FormationModel> formations = new ArrayList<>();
-
-    @ManyToMany
-    private List<FormateurModel> formateurs;
-
-    @ManyToMany
-    private List<CandidatModel> candidats;
-
-
-
-    @ManyToOne
-    private sousAdmin gestionnaire;
-
+    @OneToMany(mappedBy = "session")
+    private List<CentreFormationModel> centresFormations;
 }
 

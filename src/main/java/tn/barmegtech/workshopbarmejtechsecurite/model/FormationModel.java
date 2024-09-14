@@ -20,17 +20,10 @@ public class FormationModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
+    private String titre;
     private String description;
-    private int duree; // durée de la formation en jours
-//Explication : Une table d'association session_formation sera créée pour gérer la relation entre SessionModel et FormationModel,
-// avec les colonnes session_id et formation_id pour les clés étrangères.
-    @ManyToMany
-    @JoinTable(
-            name = "session_formation",
-            joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "formation_id")
-    )
-    private List<FormationModel> formations = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "centre_formation_id")
+    private CentreFormationModel centreFormation;
 }

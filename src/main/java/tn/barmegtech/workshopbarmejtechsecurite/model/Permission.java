@@ -7,24 +7,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
-
-public class CandidatModel {
-
+public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
-    private String prenom;
+    @Enumerated(EnumType.STRING)
+    private PermissionType type;
 
     @ManyToOne
-    @JoinColumn(name = "centre_formation_id")
     private CentreFormationModel centreFormation;
+
 }
